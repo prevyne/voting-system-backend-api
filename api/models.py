@@ -6,7 +6,7 @@ class Post(models.Model):
     jurisdiction = models.CharField(max_length=200)
     
     def __str__(self):
-        return f"ID: {self.post_id}: , Title: {self.title} , Jurisdiction: {self.jurisdiction}"
+        return f"ID: {self.post_id} , Title: {self.title} , Jurisdiction: {self.jurisdiction}"
     
 class Candidate(models.Model):
     candidate_id = models.IntegerField(primary_key= True)

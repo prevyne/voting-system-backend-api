@@ -128,3 +128,25 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+<<<<<<< HEAD
+=======
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+        ),
+    
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+        ),
+}
+
+CORS_ALLOWED_ORIGINS = [
+    'https://localhost:5137',
+]
+
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+]
+>>>>>>> 722c5be (api endpoints)
