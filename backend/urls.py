@@ -15,16 +15,26 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-<<<<<<< HEAD
-from django.urls import path
+from django.urls import path, include, re_path
+from drf_yasg.views import get_schema_view
+from drf_yasg.openapi import Info, Contact
+from rest_framework.permissions import AllowAny
+
+schema_view = get_schema_view(Info(
+            title= 'Project Vota',
+            description= 'A voting system backend RESTful API documented with Swagger',
+            default_version= 'v1',
+            contact= Contact(email='prevyneoketch6@gmail.com'),
+            
+    ), 
+                              public = True,
+                              permission_classes= [ AllowAny, ])
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-=======
-from django.urls import path, include
-
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('api/', include('api.urls'),)
->>>>>>> 722c5be (api endpoints)
+    path('api/', include('api.urls')),
+    #Swagger Endpoints
+    re_path(r'^swagger(?P<format>\.json | \.yaml)$', schema_view.without_ui(cache_timeout=0), name ='json_schema'),
+    path('swagger/', schema_view.with_ui(cache_timeout=0), name ='swagger'),
+    path('redoc/', schema_view.with_ui(cache_timeout=0), name ='redoc'),
 ]

@@ -10,7 +10,7 @@ router.register('candidate', CandidateViewset, basename='candidate_viewset')
 router.register('post', PostViewset, basename='post_viewset')
 
 urlpatterns = [
-    path('endpoints/', include(router.urls)),
+    path('', include(router.urls)),
     path('token/', TokenObtainPairView.as_view(), name='token obtain'),
     path('token/refresh/', TokenRefreshView.as_view(), name='token refresh'),
 ]

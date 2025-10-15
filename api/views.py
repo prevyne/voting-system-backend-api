@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-from django.shortcuts import render
-
-# Create your views here.
-=======
 from rest_framework import viewsets
 from .serializers import VoteSerializer, VoterSerializer, CandidateSerializer, PostSerializer
 from .models import Vote, Voter, Candidate, Post
@@ -28,5 +23,4 @@ class PostViewset(viewsets.ModelViewSet):
     queryset = Post.objects.all()
     serializer_class = PostSerializer 
     permission_classes = [ IsAuthenticatedOrReadOnly, ]
-    
->>>>>>> 722c5be (api endpoints)
+
