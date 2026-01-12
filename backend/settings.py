@@ -37,12 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #Third party apps
+    # Third party apps
     'rest_framework',
     'rest_framework_simplejwt',
     'corsheaders',
     'drf_yasg',
-    #Local Apps
+    # Local Apps
     'api',
 ]
 
@@ -132,11 +132,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
-        ),
-    
+    ),
+
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticatedOrReadOnly',
-        ),
+    ),
 }
 
 CORS_ALLOWED_ORIGINS = [
@@ -154,7 +154,7 @@ SWAGGER_SETTINGS = {
     'SECURITY_DEFINITIONS': {
         'Bearer': {
             'type': 'apiKey',
-            'name': 'Authemtication',
+            'name': 'Authorization',
             'in': 'header',
         }
     }
